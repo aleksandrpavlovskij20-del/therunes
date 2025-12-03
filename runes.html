@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коллекция рун The Forge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ff6b00;
+        }
+        
+        h1 {
+            color: #ff6b00;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b00, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            color: #8a8a8a;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        
+        .runes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .rune-card {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rune-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.2);
+            border-color: #ff6b00;
+        }
+        
+        .rune-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b00, #ffa500);
+        }
+        
+        .rune-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .rune-icon {
+            font-size: 2.5em;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .rune-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .rune-name-en {
+            color: #ffa500;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        .effect {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .effect-type {
+            color: #4fc3f7;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .effect-desc {
+            line-height: 1.6;
+        }
+        
+        .multiple-effects {
+            margin-top: 15px;
+        }
+        
+        .effect-item {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            border-left: 2px solid #ff6b00;
+        }
+        
+        .effect-title {
+            color: #69f0ae;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #8a8a8a;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+.runes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+        
+        /* Цвета для разных типов эффектов */
+        .ice { color: #4fc3f7; }
+        .poison { color: #69f0ae; }
+        .fire { color: #ff6b00; }
+        .explosion { color: #ffd740; }
+        .mining { color: #b0bec5; }
+        .vampire { color: #f44336; }
+        .physical { color: #e0e0e0; }
+        .thorns { color: #9c27b0; }
+        .shield { color: #2196f3; }
+        .movement { color: #00bcd4; }
+        .toxic { color: #8bc34a; }
+        .slow { color: #bb86fc; }
+        .berserk { color: #ff5252; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚔️ Коллекция рун The Forge</h1>
+            <p class="subtitle">Могущественные артефакты для закалённых в боях воинов</p>
+        </header>
+        
+        <div class="runes-grid">
+            <!-- Морозная крошка -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">❄️</div>
+                    <div>
+                        <div class="rune-name">Frost Speck</div>
+                        <div class="rune-name-en">Морозная крошка</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type ice">❄️ Лёд</span>
+                    <p class="effect-desc">Мгновенно замораживает противников при попадании.</p>
+                </div>
+            </div>
+            
+            <!-- Ядовитая крошка -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">☠️</div>
+                    <div>
+                        <div class="rune-name">Venom Crumb</div>
+                        <div class="rune-name-en">Ядовитая крошка</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type poison">☠️ Яд</span>
+                    <p class="effect-desc">Наносит дополнительный процентный ядовитый урон от оружия.</p>
+                </div>
+            </div>
+            
+            <!-- Взрывной чип -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">💥</div>
+                    <div>
+                        <div class="rune-name">Blast Chip</div>
+                        <div class="rune-name-en">Взрывной чип</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type explosion">💥 Взрыв</span>
+                    <p class="effect-desc">Создает небольшую взрывную волну по площади при атаке.</p>
+                </div>
+            </div>
+            
+            <!-- Шахтёрский осколок -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">⛏️</div>
+                    <div>
+                        <div class="rune-name">Miner Shard</div>
+                        <div class="rune-name-en">Шахтёрский осколок</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type mining">⛏️ Добыча I</span>
+                    <p class="effect-desc">+5% шанс получить дополнительную руду.</p>
+                </div>
+            </div>
+            
+            <!-- Искра пламени -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">🔥</div>
+                    <div>
+                        <div class="rune-name">Flame Spark</div>
+                        <div class="rune-name-en">Искра пламени</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type fire">🔥 Жар I</span>
+                    <p class="effect-desc">Накладывает горение, наносящий процентный огненный урон.
+</p>
+                </div>
+            </div>
+            
+            <!-- Грань истощения -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">🩸</div>
+                    <div>
+                        <div class="rune-name">Drain Edge</div>
+                        <div class="rune-name-en">Грань истощения</div>
+                    </div>
+                </div>
+                <div class="multiple-effects">
+                    <div class="effect-item">
+                        <div class="effect-title vampire">🩸 Вампиризм I</div>
+                        <p>Восстанавливает 12% от нанесённого физического урона.</p>
+                    </div>
+                    <div class="effect-item">
+                        <div class="effect-title physical">🗡️ Смертоносность I</div>
+                        <p>+15% к физическому урону.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Шипастая засечка -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">🌿</div>
+                    <div>
+                        <div class="rune-name">Briar Notch</div>
+                        <div class="rune-name-en">Шипастая засечка</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type thorns">🌿 Шипы I</span>
+                    <p class="effect-desc">Возвращает атакующему только 5% полученного урона вместо 6-9%.</p>
+                </div>
+            </div>
+            
+            <!-- Защитная нашивка -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">🛡️</div>
+                    <div>
+                        <div class="rune-name">Ward Patch</div>
+                        <div class="rune-name-en">Защитная нашивка</div>
+                    </div>
+                </div>
+                <div class="multiple-effects">
+                    <div class="effect-item">
+                        <div class="effect-title shield">🛡️ Щит I</div>
+                        <p>14% шанс снизить полученный физический урон на 13%.</p>
+                    </div>
+                    <div class="effect-item">
+                        <div class="effect-title movement">⚡️ Шаг I</div>
+                        <p>Дистанция рывка увеличена на 11%.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Гнилостный стежок -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">🧪</div>
+                    <div>
+                        <div class="rune-name">Rot Stich</div>
+                        <div class="rune-name-en">Гнилостный стежок</div>
+                    </div>
+                </div>
+                <div class="multiple-effects">
+                    <div class="effect-item">
+                        <div class="effect-title toxic">🧪 Токсичные жилы</div>
+                        <p>При падении здоровья ниже 35% создаёт ядовитую ауру (9% урона в секунду, 8 сек., откат 35 сек.).</p>
+                    </div>
+                    <div class="effect-item">
+                        <div class="effect-title movement">⚡️ Шаг I</div>
+                        <p>Дистанция рывка увеличена на 11%.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Пыль холода -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">❄️</div>
+                    <div>
+                        <div class="rune-name">Chill Dust</div>
+                        <div class="rune-name-en">Пыль холода</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type slow">❄️ Снег</span>
+<p class="effect-desc">Снижает скорость движения и атаки поражённых врагов.</p>
+                </div>
+            </div>
+            
+            <!-- Знак ярости -->
+            <div class="rune-card">
+                <div class="rune-header">
+                    <div class="rune-icon">⚡️</div>
+                    <div>
+                        <div class="rune-name">Rage Mark</div>
+                        <div class="rune-name-en">Знак ярости</div>
+                    </div>
+                </div>
+                <div class="effect">
+                    <span class="effect-type berserk">⚡️ Берсерк</span>
+                    <p class="effect-desc">При здоровье ниже 35% увеличивает физический урон и скорость атак.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© Коллекция рун The Forge | Все эффекты актуальны на текущую версию</p>
+            <p>Собрано для истинных мастеров боя</p>
+        </footer>
+    </div>
+	
+	<a href="https://therunes.ru" target="_blank">руны</a>
+	
+</body>
+</html>
